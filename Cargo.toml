@@ -3,6 +3,7 @@
 members = [
   "rsa",
   "timed_commitments",
+  # "aggregable_timed_commitments",
   "range_proofs",
   "solidity_test_utils",
   "solidity",
