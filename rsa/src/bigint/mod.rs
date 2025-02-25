@@ -42,7 +42,7 @@ pub fn nat_to_f<F: PrimeField>(n: &BigInt) -> Result<F, Error> {
 /// The limbs are assumed to be based the `limb_width` power of 2.
 pub fn limbs_to_nat<F: PrimeField>(limbs: &Vec<F>, limb_width: usize) -> BigInt {
     limbs.iter().rev().fold(BigInt::from(0), |mut acc, limb| {
-        acc <<= limb_width as u32;
+        acc <<= limb_width as u32; // *2^limb_width
         acc += f_to_nat(limb.borrow());
         acc
     })

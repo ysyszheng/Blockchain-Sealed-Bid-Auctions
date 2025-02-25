@@ -1,5 +1,0 @@
-[package]
-name = "aggregable_timed_commitments"
-version = "0.1.0"
-authors = ["Yusen Zheng"]
-edition = "2021"

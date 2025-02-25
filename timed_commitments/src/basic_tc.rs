@@ -17,7 +17,7 @@ use digest::Digest;
 use num_bigint::RandBigInt;
 use rand::{CryptoRng, Rng};
 
-pub type Hog<P> = RsaHiddenOrderGroup<P>;
+pub type Hog<P> = RsaHiddenOrderGroup<P>; // Hidden order group **element**
 
 #[derive(Clone, PartialEq, Eq, Debug)]
 pub struct TimeParams<RsaP: RsaGroupParams> {
@@ -68,7 +68,7 @@ impl<PoEP: PoEParams, RsaP: RsaGroupParams, H: Digest, H2P: HashToPrime>
 
     pub fn gen_time_params_cheating(t: u64, order: &BigInt) -> Result<(TimeParams<RsaP>), Error> {
         let two = Hog::<RsaP>::generator();
-        let rem = BigInt::from(2).modpow(&BigInt::from(t), &order);
+        let rem = BigInt::from(2).modpow(&BigInt::from(t), &order); // order maybe != M
         let g = two.power(&rem);
         let y = g.power(&rem);
 
